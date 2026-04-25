@@ -1,9 +1,9 @@
 #pragma once
 #import <Foundation/Foundation.h>
 
-static NSString * const kServerURL   = @"https://eqwofaygdsjko.uk";
-static NSString * const kTokenKey    = @"GJ_TOKEN";
-static NSString * const kUsernameKey = @"GJ_USERNAME";
+static NSString * _Nonnull const kServerURL   = @"https://eqwofaygdsjko.uk";
+static NSString * _Nonnull const kTokenKey    = @"GJ_TOKEN";
+static NSString * _Nonnull const kUsernameKey = @"GJ_USERNAME";
 
 typedef void(^GJLoginBlock)(NSString * _Nullable token, NSString * _Nullable error);
 typedef void(^GJTaskBlock)(NSDictionary * _Nullable taskData, NSString * _Nullable error);

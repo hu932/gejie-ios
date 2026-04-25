@@ -50,8 +50,8 @@
     UINavigationBar.appearance.scrollEdgeAppearance = navApp;
     UINavigationBar.appearance.tintColor = GJ_PRIMARY;
 
-    // StatusBar
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    // StatusBar - 通过 Info.plist UIViewControllerBasedStatusBarAppearance=NO 控制，
+    // 此处用 preferredStatusBarStyle 已足够，不再直接设置（iOS 13+ 废弃 statusBarStyle）
 }
 
 // 启动画面

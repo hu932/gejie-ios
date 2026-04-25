@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>com.gejie.app</string>
+
+    <key>CFBundleName</key>
+    <string>格界</string>
+
+    <key>CFBundleDisplayName</key>
+    <string>格界</string>
+
+    <key>CFBundleExecutable</key>
+    <string>GeJie</string>
+
+    <key>CFBundleVersion</key>
+    <string>1</string>
+
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+
+    <key>CFBundleSignature</key>
+    <string>????</string>
+
+    <key>MinimumOSVersion</key>
+    <string>14.0</string>
+
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+
+    <key>UILaunchStoryboardName</key>
+    <string></string>
+
+    <key>UIApplicationSupportsIndirectInputEvents</key>
+    <true/>
+
+    <key>UIStatusBarStyle</key>
+    <string>UIStatusBarStyleLightContent</string>
+
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <false/>
+
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+
+    <key>CFBundleIconFiles</key>
+    <array>
+        <string>AppIcon</string>
+    </array>
+
+    <key>CFBundleIcons</key>
+    <dict>
+        <key>CFBundlePrimaryIcon</key>
+        <dict>
+            <key>CFBundleIconFiles</key>
+            <array>
+                <string>AppIcon</string>
+            </array>
+        </dict>
+    </dict>
+</dict>
+</plist>

@@ -24,6 +24,7 @@ GeJie_LDFLAGS = -lz
 
 GeJie_BUNDLE_ID = com.gejie.app
 GeJie_DISPLAY_NAME = 格界
+GeJie_INFO_PLIST = Info.plist
 
 include $(THEOS)/makefiles/application.mk
 

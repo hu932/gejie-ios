@@ -13,29 +13,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq \
+          sudo apt-get install -y \
             curl git perl make rsync zip unzip \
-            fakeroot dpkg-dev xz-utils ca-certificates
+            fakeroot dpkg-dev xz-utils ca-certificates \
+            clang lld libplist-utils
 
       - name: Install Theos
         run: |
-          export THEOS=/opt/theos
           sudo mkdir -p /opt/theos
-          sudo chown $USER /opt/theos
-          git clone --recursive https://github.com/theos/theos.git /opt/theos
-          echo "THEOS=/opt/theos" >> $GITHUB_ENV
+          sudo chown $(whoami) /opt/theos
+          git clone --recursive https://github.com/theos/theos.git /opt/theos --depth=1
+          ls /opt/theos
 
       - name: Download iOS SDK
         run: |
           mkdir -p /opt/theos/sdks
-          curl -L \
-            "https://github.com/xybp888/iOS-SDKs/releases/download/iOS17.5-Xcode15.4/iPhoneOS16.2.sdk.tar.xz" \
-            -o /tmp/sdk.tar.xz
-          file /tmp/sdk.tar.xz
-          tar -xf /tmp/sdk.tar.xz -C /opt/theos/sdks/
+          git clone https://github.com/theos/sdks.git /tmp/theos-sdks --depth=1
+          cp -r /tmp/theos-sdks/*.sdk /opt/theos/sdks/ 2>/dev/null || ls /tmp/theos-sdks/
           ls /opt/theos/sdks/
 
       - name: Build 格界

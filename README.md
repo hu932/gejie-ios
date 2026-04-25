@@ -83,16 +83,7 @@ git push origin main
 
 ---
 
-## 编译错误记录
 
-| 错误类型 | 文件 | 修复方案 |
-|---------|------|---------|
-| nullability 缺失 | `APIClient.h` | 添加 `_Nonnull` / `nonnull` 修饰符 |
-| 宏未定义 `GJ_BG_SECONDARY` | `AppDelegate.mm` | `GJTheme.h` 添加别名宏 |
-| 宏未定义 `GJ_TEXT_SECONDARY` | `GJTheme.h` | 添加 `#define GJ_TEXT_SECONDARY GJ_TEXT_SEC` |
-| 废弃 API `statusBarStyle` | `AppDelegate.mm` | 删除该行（iOS 13+ 不支持） |
-| 未使用变量 `bw` | `TaskViewController.mm` | 删除该变量声明 |
-| Spring 动画方法找不到 | `FloatBubbleView.mm` | 改用 `UIViewPropertyAnimator` |
 
 ---
 

@@ -13,15 +13,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Theos
-        uses: theos/theos-action@v1
-        with:
-          theos-sdks-source: https://github.com/theos/sdks
+      - name: Install prerequisites
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y bash curl sudo git perl make rsync \
+            zip unzip fakeroot dpkg-dev ca-certificates
+
+      - name: Install Theos (official script)
+        env:
+          THEOS: /opt/theos
+        run: |
+          sudo mkdir -p /opt/theos
+          sudo chown $(whoami) /opt/theos
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+
+      - name: Download iOS SDK
+        run: |
+          git clone https://github.com/theos/sdks.git /tmp/theos-sdks --depth=1
+          cp -r /tmp/theos-sdks/*.sdk /opt/theos/sdks/ 2>/dev/null || true
+          echo "Available SDKs:"
+          ls /opt/theos/sdks/
 
       - name: Build 格界
+        env:
+          THEOS: /opt/theos
         run: |
           cd 格界
-          make package FINALPACKAGE=1
+          make package FINALPACKAGE=1 2>&1
 
       - name: Upload deb
         uses: actions/upload-artifact@v4

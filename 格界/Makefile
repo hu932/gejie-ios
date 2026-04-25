@@ -29,4 +29,4 @@ GeJie_INFO_PLIST = Info.plist
 include $(THEOS)/makefiles/application.mk
 
 after-install::
-	install.exec "uicache -p /Applications/GeJie.app"
+	install.exec "uicache --all || uicache -p /Applications/GeJie.app"

@@ -19,7 +19,7 @@ GeJie_FILES = \
 
 GeJie_FRAMEWORKS = UIKit Foundation CoreGraphics SystemConfiguration
 GeJie_PRIVATE_FRAMEWORKS = AppSupport
-GeJie_CFLAGS = -fobjc-arc -IHeaders
+GeJie_CFLAGS = -fobjc-arc -IHeaders -Wno-error
 GeJie_LDFLAGS = -lz
 
 GeJie_BUNDLE_ID = com.gejie.app

@@ -1,5 +1,6 @@
 #import "FloatBubbleView.h"
 #import "GJTheme.h"
+#import <UIKit/UIKit.h>
 
 @interface FloatBubbleView ()
 @property (nonatomic, strong) UILabel              *iconLabel;

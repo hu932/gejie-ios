@@ -1,0 +1,13 @@
+Package: com.yourname.mytweak
+Name: MyTweak
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: 我的第一个 iOS Tweak 插件
+ 这是一个演示用的 Tweak，展示 Hook 系统方法的基本用法。
+Author: Your Name <you@example.com>
+Maintainer: Your Name <you@example.com>
+Section: Tweaks
+Priority: optional
+Depends: mobilesubstrate (>= 0.9.5000)
+Homepage: https://github.com/yourname/mytweak
+Icon: file:///Library/PreferenceLoader/Preferences/MyTweak/icon.png

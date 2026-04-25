@@ -1,0 +1,15 @@
+# Theos 编译产物
+格界/.theos/
+格界/obj/
+格界/packages/
+格界/.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+vphone_gui.py
+run.bat
+run.sh
+
+# Windows
+Thumbs.db

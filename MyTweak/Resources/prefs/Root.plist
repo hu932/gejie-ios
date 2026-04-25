@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>title</key>
+    <string>MyTweak</string>
+
+    <key>items</key>
+    <array>
+
+        <!-- 分组标题 -->
+        <dict>
+            <key>cell</key>    <string>PSGroupCell</string>
+            <key>label</key>   <string>基本设置</string>
+        </dict>
+
+        <!-- 总开关 -->
+        <dict>
+            <key>cell</key>       <string>PSSwitchCell</string>
+            <key>key</key>        <string>enabled</string>
+            <key>label</key>      <string>启用 MyTweak</string>
+            <key>default</key>    <true/>
+            <key>PostNotification</key>
+            <string>com.yourname.mytweak/settingsChanged</string>
+        </dict>
+
+        <!-- 功能开关示例 -->
+        <dict>
+            <key>cell</key>       <string>PSSwitchCell</string>
+            <key>key</key>        <string>showBanner</string>
+            <key>label</key>      <string>显示通知横幅</string>
+            <key>default</key>    <false/>
+            <key>PostNotification</key>
+            <string>com.yourname.mytweak/settingsChanged</string>
+        </dict>
+
+        <!-- 分组：关于 -->
+        <dict>
+            <key>cell</key>    <string>PSGroupCell</string>
+            <key>label</key>   <string>关于</string>
+            <key>footerText</key>
+            <string>MyTweak v1.0.0 — 由 YourName 开发</string>
+        </dict>
+
+    </array>
+</dict>
+</plist>

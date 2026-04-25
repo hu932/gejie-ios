@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- 注入模式：按 Bundle ID 过滤 -->
+    <key>Filter</key>
+    <dict>
+        <!-- 注入 SpringBoard（桌面进程） -->
+        <key>Bundles</key>
+        <array>
+            <string>com.apple.springboard</string>
+        </array>
+
+        <!--
+        也可以按可执行文件名过滤：
+        <key>Executables</key>
+        <array>
+            <string>SpringBoard</string>
+        </array>
+
+        或者按 SDK 版本过滤（同时满足所有条件）：
+        <key>CoreFoundationVersion</key>
+        <array>
+            <real>1600</real>   最低版本 iOS 14
+            <real>9999</real>   最高版本
+        </array>
+        -->
+    </dict>
+</dict>
+</plist>

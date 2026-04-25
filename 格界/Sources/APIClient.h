@@ -12,35 +12,35 @@ typedef void(^GJProductBlock)(NSDictionary * _Nullable product, NSString * _Null
 
 @interface APIClient : NSObject
 
-+ (instancetype)shared;
++ (nonnull instancetype)shared;
 
 @property (nonatomic, copy, nullable)   NSString *token;
 @property (nonatomic, copy, nullable)   NSString *serverURL;
 @property (nonatomic, assign, readonly) NSInteger finishedCount;
 
 /// 登录
-- (void)loginWithUsername:(NSString *)username
-                 password:(NSString *)password
-               completion:(GJLoginBlock)completion;
+- (void)loginWithUsername:(nonnull NSString *)username
+                 password:(nonnull NSString *)password
+               completion:(nonnull GJLoginBlock)completion;
 
 /// 获取任务
-- (void)getTaskWithCompletion:(GJTaskBlock)completion;
+- (void)getTaskWithCompletion:(nonnull GJTaskBlock)completion;
 
 /// 提交任务
-- (void)submitTask:(NSDictionary *)taskData
-         submitURL:(NSString *)submitURL
-            result:(NSDictionary *)result
-        completion:(GJSubmitBlock)completion;
+- (void)submitTask:(nonnull NSDictionary *)taskData
+         submitURL:(nonnull NSString *)submitURL
+            result:(nonnull NSDictionary *)result
+        completion:(nonnull GJSubmitBlock)completion;
 
 /// 获取 Shopee 商品详情（解析 URL）
-- (void)fetchShopeeProductFromURL:(NSString *)url
-                       completion:(GJProductBlock)completion;
+- (void)fetchShopeeProductFromURL:(nonnull NSString *)url
+                       completion:(nonnull GJProductBlock)completion;
 
 /// 本地计数 +1
 - (void)incrementCount;
 
 /// 读取 / 保存 token
-- (void)saveToken:(NSString *)token username:(NSString *)username;
+- (void)saveToken:(nonnull NSString *)token username:(nonnull NSString *)username;
 - (BOOL)loadSavedCredentials;
 
 @end

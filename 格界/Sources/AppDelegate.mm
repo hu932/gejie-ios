@@ -38,7 +38,7 @@
     // NavigationBar
     UINavigationBarAppearance *navApp = [UINavigationBarAppearance new];
     [navApp configureWithOpaqueBackground];
-    navApp.backgroundColor = GJ_BG_SECONDARY;
+    navApp.backgroundColor = GJ_BG_CARD;
     navApp.titleTextAttributes = @{
         NSForegroundColorAttributeName: GJ_TEXT_PRIMARY,
         NSFontAttributeName: GJ_FONT_SUBTITLE,
@@ -51,7 +51,7 @@
     UINavigationBar.appearance.tintColor = GJ_PRIMARY;
 
     // StatusBar
-    application.statusBarStyle = UIStatusBarStyleLightContent;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 
 // 启动画面

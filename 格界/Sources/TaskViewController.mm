@@ -270,8 +270,6 @@ typedef NS_ENUM(NSInteger, GJTaskState) {
 
     [self.view addSubview:bottomBar];
 
-    CGFloat bw = (W - 48) / 2;
-
     // 主操作按钮（大）
     _mainActionButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _mainActionButton.frame = CGRectMake(16, 14, W-32, 52);

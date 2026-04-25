@@ -13,40 +13,31 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install system dependencies
+      - name: Install prerequisites
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y \
-            curl git perl make rsync zip unzip \
-            fakeroot dpkg-dev xz-utils ca-certificates \
-            libplist-utils
+          sudo apt-get install -y bash curl sudo git perl make rsync \
+            zip unzip fakeroot dpkg-dev ca-certificates
 
-      - name: Install Theos
+      - name: Install Theos (official script)
+        env:
+          THEOS: /opt/theos
         run: |
           sudo mkdir -p /opt/theos
           sudo chown $(whoami) /opt/theos
-          git clone --recursive https://github.com/theos/theos.git /opt/theos --depth=1
-          cd /opt/theos
-          git submodule update --init --recursive
-
-      - name: Download iOS Toolchain
-        run: |
-          mkdir -p /opt/theos/toolchain/linux/iphone
-          curl -L "https://github.com/theos/toolchain/releases/download/14.5/toolchain.tar.xz" \
-            -o /tmp/toolchain.tar.xz --location --fail
-          tar -xf /tmp/toolchain.tar.xz -C /opt/theos/toolchain/linux/iphone --strip-components=1
-          ls /opt/theos/toolchain/linux/iphone/bin/
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
 
       - name: Download iOS SDK
         run: |
-          mkdir -p /opt/theos/sdks
           git clone https://github.com/theos/sdks.git /tmp/theos-sdks --depth=1
           cp -r /tmp/theos-sdks/*.sdk /opt/theos/sdks/ 2>/dev/null || true
+          echo "Available SDKs:"
           ls /opt/theos/sdks/
 
       - name: Build 格界
+        env:
+          THEOS: /opt/theos
         run: |
-          export THEOS=/opt/theos
           cd 格界
           make package FINALPACKAGE=1 2>&1
 

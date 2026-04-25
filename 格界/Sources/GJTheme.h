@@ -13,12 +13,14 @@
 // 背景色
 #define GJ_BG_DARK       [UIColor colorWithRed:0.05 green:0.06 blue:0.12 alpha:1.0]
 #define GJ_BG_CARD       [UIColor colorWithRed:0.10 green:0.12 blue:0.20 alpha:1.0]
+#define GJ_BG_SECONDARY  GJ_BG_CARD
 #define GJ_BG_INPUT      [UIColor colorWithRed:0.13 green:0.15 blue:0.24 alpha:1.0]
 
 // 文字色
-#define GJ_TEXT_PRIMARY  [UIColor colorWithWhite:0.95 alpha:1.0]
-#define GJ_TEXT_SEC      [UIColor colorWithWhite:0.60 alpha:1.0]
-#define GJ_TEXT_MUTED    [UIColor colorWithWhite:0.35 alpha:1.0]
+#define GJ_TEXT_PRIMARY    [UIColor colorWithWhite:0.95 alpha:1.0]
+#define GJ_TEXT_SEC        [UIColor colorWithWhite:0.60 alpha:1.0]
+#define GJ_TEXT_SECONDARY  GJ_TEXT_SEC
+#define GJ_TEXT_MUTED      [UIColor colorWithWhite:0.35 alpha:1.0]
 
 // 状态色
 #define GJ_SUCCESS       [UIColor colorWithRed:0.18 green:0.84 blue:0.44 alpha:1.0]

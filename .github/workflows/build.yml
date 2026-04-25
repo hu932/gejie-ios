@@ -19,20 +19,29 @@ jobs:
           sudo apt-get install -y \
             curl git perl make rsync zip unzip \
             fakeroot dpkg-dev xz-utils ca-certificates \
-            clang lld libplist-utils
+            libplist-utils
 
       - name: Install Theos
         run: |
           sudo mkdir -p /opt/theos
           sudo chown $(whoami) /opt/theos
           git clone --recursive https://github.com/theos/theos.git /opt/theos --depth=1
-          ls /opt/theos
+          cd /opt/theos
+          git submodule update --init --recursive
+
+      - name: Download iOS Toolchain
+        run: |
+          mkdir -p /opt/theos/toolchain/linux/iphone
+          curl -L "https://github.com/theos/toolchain/releases/download/14.5/toolchain.tar.xz" \
+            -o /tmp/toolchain.tar.xz --location --fail
+          tar -xf /tmp/toolchain.tar.xz -C /opt/theos/toolchain/linux/iphone --strip-components=1
+          ls /opt/theos/toolchain/linux/iphone/bin/
 
       - name: Download iOS SDK
         run: |
           mkdir -p /opt/theos/sdks
           git clone https://github.com/theos/sdks.git /tmp/theos-sdks --depth=1
-          cp -r /tmp/theos-sdks/*.sdk /opt/theos/sdks/ 2>/dev/null || ls /tmp/theos-sdks/
+          cp -r /tmp/theos-sdks/*.sdk /opt/theos/sdks/ 2>/dev/null || true
           ls /opt/theos/sdks/
 
       - name: Build 格界
